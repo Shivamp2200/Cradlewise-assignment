@@ -1,14 +1,12 @@
-
-
 import { useState, useEffect } from 'react';
 
-const ImageSlider = ({ images, onSlideChange }) => {
+const ImageSlider = ({ images = [], onSlideChange }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handleNext = () => {
     setCurrentIndex((prevIndex) => {
       const newIndex = prevIndex === images.length - 1 ? 0 : prevIndex + 1;
-      onSlideChange(newIndex); 
+      if (onSlideChange) onSlideChange(newIndex); 
       return newIndex;
     });
   };
@@ -16,18 +14,24 @@ const ImageSlider = ({ images, onSlideChange }) => {
   const handlePrev = () => {
     setCurrentIndex((prevIndex) => {
       const newIndex = prevIndex === 0 ? images.length - 1 : prevIndex - 1;
-      onSlideChange(newIndex); 
+      if (onSlideChange) onSlideChange(newIndex); 
       return newIndex;
     });
   };
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      handleNext();
-    }, 5000); 
+    if (images.length > 0) {
+      const interval = setInterval(() => {
+        handleNext();
+      }, 5000); 
 
-    return () => clearInterval(interval);
+      return () => clearInterval(interval);
+    }
   }, [images.length]); 
+
+  if (images.length === 0) {
+    return <div>No images available</div>;
+  }
 
   return (
     <div className="relative w-full h-full flex items-center justify-center py-8 md:py-20">
@@ -54,3 +58,4 @@ const ImageSlider = ({ images, onSlideChange }) => {
 };
 
 export default ImageSlider;
+
