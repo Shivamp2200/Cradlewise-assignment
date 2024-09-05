@@ -10,21 +10,7 @@ export default function MainUI() {
   };
 
 
-  const bounceVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: [0, -30, 0, -15, 0], 
-      transition: {
-        duration: 2.5,
-        ease: 'easeInOut',
-        times: [0, 0.3, 0.6, 0.8, 1], 
-        repeat: Infinity, 
-        repeatType: 'loop',
-      },
-    },
-  };
-
+  
   return (
     <div className="min-h-screen bg-[#FBFBFB]">
       <main className="max-w-5xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
@@ -120,7 +106,7 @@ export default function MainUI() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: false }}
-          variants={bounceVariants} // Apply the bounce animation to this section
+          variants={variants}
         >
           <Image
             src="/Crib bounce_Desktop.png"
@@ -137,7 +123,7 @@ export default function MainUI() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: false }}
-          transition={{ duration: 0.5, delay: 1.2 }}
+          transition={{ duration: 0.5, delay: 0.9 }}
           variants={variants}
         >
           <h2 className="text-[35px] font-medium leading-[45px] 
