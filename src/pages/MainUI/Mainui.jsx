@@ -10,7 +10,7 @@ export default function MainUI() {
   };
 
 
-  
+
   return (
     <div className="min-h-screen bg-[#FBFBFB]">
       <main className="max-w-5xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
@@ -119,7 +119,7 @@ export default function MainUI() {
 
         
         <motion.section
-          className="mt-[150px] opacity-0 text-center"
+          className="mt-[140px] opacity-0 text-center"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: false }}
