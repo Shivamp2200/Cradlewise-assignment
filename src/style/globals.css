@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Basier+Circle:wght@500&display=swap');
+
+@font-face {
+  font-family: 'Recoleta Alt Medium';
+  src: url('/fonts/Recoleta Alt Medium.otf') format('opentype');
+  font-weight: medium;
+  font-style: medium;
+}
+
+.font-custom {
+  font-family: 'Recoleta Alt Medium', sans-serif;
+}
+
+html, body {
+  font-family: 'Basier Circle', sans-serif;
+}
+
+.fadeIn {
+  opacity: 1 !important;
+}
+
+.fadeOut {
+  opacity: 0 !important;
+  transition: opacity 2s ease-out;
+}
+
+.stay-connected {
+  opacity: 0;
+  transition: opacity 2s ease-in;
+}
+
